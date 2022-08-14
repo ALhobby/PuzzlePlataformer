@@ -22,19 +22,25 @@ func _ready():
 	player.connect("recall_moth", self, "recall_moth")
 
 	button.connect("button_pressed", self, "make_platform_solid")
+	button.connect("button_unpressed", self, "make_platform_ghost")
 	appearing_platform_sprite.modulate = Color(1,1,1,0.2)
 	appearing_platform_collisionShape.set_disabled(true)
 
 
 func make_platform_solid():
 	appearing_platform_sprite.modulate = Color(1,1,1,1)
-	appearing_platform_collisionShape.disabled = false
-	print(appearing_platform_collisionShape.disabled)
-	
+	appearing_platform_collisionShape.call_deferred("set_disabled",false)
+
+
+func make_platform_ghost():
+	appearing_platform_sprite.modulate = Color(1,1,1,0.2)
+	appearing_platform_collisionShape.set_disabled(true)
+
+
 func create_moth(launcher : Node):
 	""" Instance a new Moth scene
 	"""
-	if new_moth:
+	if new_moth != null:
 		remove_child(new_moth)
 	new_moth = moth.instance()
 	new_moth.global_position = launcher.global_position + Vector2(0,-40)  # Spawn on top of player

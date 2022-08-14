@@ -121,3 +121,9 @@ func _process(delta):
 		update_trajectory(delta)
 		update()  # Draw
 
+
+
+
+func _on_Spikes_body_entered(body):
+	if body == player:
+		print("DEAD") 

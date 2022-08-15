@@ -7,34 +7,15 @@ onready var player = $Player
 onready var new_moth : Node = null
 onready var trayectory = $Line2D
 onready var draw_trayectory : bool = false
-onready var throw_range_x = 200
-onready var throw_range_y = -250
+onready var throw_range_x = 180
+onready var throw_range_y = -200
 onready var vertex : Vector2 = Vector2.INF
-onready var button = $Button
-
-onready var appearing_platform_sprite = $AppearingPlatform/Sprite
-onready var appearing_platform_collisionShape = $AppearingPlatform/CollisionShape2D
 
 
 func _ready():
 	player.connect("enter_launch_mode", self, "create_moth")
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
-
-	button.connect("button_pressed", self, "make_platform_solid")
-	button.connect("button_unpressed", self, "make_platform_ghost")
-	appearing_platform_sprite.modulate = Color(1,1,1,0.2)
-	appearing_platform_collisionShape.set_disabled(true)
-
-
-func make_platform_solid():
-	appearing_platform_sprite.modulate = Color(1,1,1,1)
-	appearing_platform_collisionShape.call_deferred("set_disabled",false)
-
-
-func make_platform_ghost():
-	appearing_platform_sprite.modulate = Color(1,1,1,0.2)
-	appearing_platform_collisionShape.set_disabled(true)
 
 
 func create_moth(launcher : Node):
@@ -94,7 +75,7 @@ func calculate_trayectory():
 	return output
 
 
-func update_trajectory(delta):
+func update_trajectory(_delta):
 	""" Reset and refull the 'trayectory' line2D
 	"""
 	trayectory.clear_points()

@@ -462,7 +462,6 @@ region_rect = Rect2( 70, 390, 130, 50 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/AppearingPlatformManager/AppearingPlatform4"]
 position = Vector2( -0.000244141, 0.000244141 )
 rotation = 0.785398
-scale = Vector2( 1, 1 )
 shape = SubResource( 35 )
 
 [node name="GUI" type="Control" parent="."]

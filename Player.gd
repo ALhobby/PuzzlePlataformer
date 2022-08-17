@@ -10,8 +10,11 @@ const gravity = 50
 const acceleration = 100
 const deacceleration_fraction = 0.4
 
-
 const UP = Vector2(0, -1)  # Set upwards direction
+
+onready var animation_tree = $AnimationTree
+onready var animation_state = animation_tree.get("parameters/playback")
+onready var sprite = $Sprite
 
 onready var launch_mode : bool = false
 onready var mothless : bool = false
@@ -21,6 +24,9 @@ var jump_count = 0
 export var extra_jumps = 1
 
 
+func _ready():
+	animation_tree.active = true
+
 func _physics_process(_delta):
 	# GRAVITY
 	motion.y += gravity
@@ -29,19 +35,27 @@ func _physics_process(_delta):
 	if not launch_mode:
 		if Input.is_action_pressed("ui_right"):
 			motion.x = min(motion.x + acceleration, speed)  # Smaller of either
+			sprite.flip_h = false
+			animation_state.travel("run_right")
 		elif  Input.is_action_pressed("ui_left"):
 			motion.x =  max(motion.x - acceleration, -speed)
+			sprite.flip_h = true
+			animation_state.travel("run_right")
 		else:
 			motion.x = lerp(motion.x, 0, deacceleration_fraction)  # Smooth de-acceleration
+			animation_state.travel("Idle_right")
 		# JUMP
 		if Input.is_action_just_pressed("ui_up"):
 			if is_on_floor():
 				motion.y = jump
+				animation_state.travel("jump_loop_right")
 			elif jump_count < extra_jumps and not mothless:
 				motion.y = jump
 				jump_count += 1
 		if is_on_floor():
 			jump_count = 0
+		else:
+			animation_state.travel("fall_loop_right")
 
 		motion = move_and_slide(motion, UP)
 	

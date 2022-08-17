@@ -1,13 +1,202 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/Other/character_spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 12, 12 )
+extents = Vector2( 12, 26.25 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
+extents = Vector2( 13, 26.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 42 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "fall_down_rigth"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 6, 5 ), Vector2( 7, 5 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "fall_loop_right"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 7, 5 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "jump_loop_right"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "jump_off_rigth"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 42, 43, 44, 45 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "run_right"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "fall_down_rigth"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "fall_loop_right"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "jump_loop_right"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "jump_off_rigth"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "run_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachine" id=17]
+states/Idle_right/node = SubResource( 8 )
+states/Idle_right/position = Vector2( 98.5, 32.8125 )
+states/fall_down_rigth/node = SubResource( 21 )
+states/fall_down_rigth/position = Vector2( 319.022, 236.633 )
+states/fall_loop_right/node = SubResource( 22 )
+states/fall_loop_right/position = Vector2( 434.37, 175.18 )
+states/jump_loop_right/node = SubResource( 9 )
+states/jump_loop_right/position = Vector2( 100.25, 235.473 )
+states/jump_off_rigth/node = SubResource( 10 )
+states/jump_off_rigth/position = Vector2( -2, 173.375 )
+states/run_right/node = SubResource( 11 )
+states/run_right/position = Vector2( 320, 34.6094 )
+transitions = [ "jump_off_rigth", "jump_loop_right", SubResource( 12 ), "Idle_right", "jump_off_rigth", SubResource( 13 ), "Idle_right", "run_right", SubResource( 14 ), "run_right", "Idle_right", SubResource( 15 ), "run_right", "jump_off_rigth", SubResource( 16 ), "jump_loop_right", "fall_down_rigth", SubResource( 23 ), "fall_down_rigth", "fall_loop_right", SubResource( 24 ), "fall_loop_right", "run_right", SubResource( 25 ), "fall_loop_right", "Idle_right", SubResource( 26 ), "Idle_right", "fall_down_rigth", SubResource( 27 ), "run_right", "fall_down_rigth", SubResource( 28 ) ]
+start_node = "Idle_right"
+graph_offset = Vector2( -236.806, 5.51999 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 189, 405 )
@@ -18,7 +207,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDetector"]
-position = Vector2( -1, -1 )
+position = Vector2( -1, 5.5 )
 shape = SubResource( 2 )
 
 [node name="ButtonDetector" type="Area2D" parent="."]
@@ -26,17 +215,12 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ButtonDetector"]
-position = Vector2( -1, -1 )
+position = Vector2( -1, 5.75 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -1 )
+position = Vector2( -1, 5.5 )
 shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -1, -1 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -44,5 +228,26 @@ limit_left = 0
 limit_top = 0
 limit_right = 1024
 limit_bottom = 576
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 9
+frame = 45
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle_right = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+anims/fall_down_rigth = SubResource( 19 )
+anims/fall_loop_right = SubResource( 20 )
+anims/jump_loop_right = SubResource( 7 )
+anims/jump_off_rigth = SubResource( 6 )
+anims/run_right = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 17 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 18 )
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_RoomDetector_area_entered"]

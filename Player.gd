@@ -4,7 +4,7 @@ signal enter_launch_mode(node)
 signal launch()
 signal recall_moth()
 
-const speed = 200
+const speed = 240
 const jump = -900  # Negative because negative 'y' is up
 const gravity = 50
 const acceleration = 100

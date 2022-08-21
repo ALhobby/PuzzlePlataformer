@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal enter_launch_mode(node)
+signal enter_throw_mode(node)
 signal launch()
 signal recall_moth()
 
@@ -16,12 +16,13 @@ onready var animation_tree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var sprite = $Sprite
 
-onready var launch_mode : bool = false
+onready var throw_mode : bool = false
 onready var mothless : bool = false
 
-var motion = Vector2.ZERO
+var velocity_vec = Vector2.ZERO
 var jump_count = 0
 export var extra_jumps = 1
+export var extra_jump_percent = 0.8
 
 
 func _ready():
@@ -29,44 +30,46 @@ func _ready():
 
 func _physics_process(_delta):
 	# GRAVITY
-	motion.y += gravity
+	velocity_vec.y += gravity
 	
 	# LEFT AND RIGHT
-	if not launch_mode:
+	if not throw_mode:  # This stops movement in launch mode. Questionable design decision
 		if Input.is_action_pressed("ui_right"):
-			motion.x = min(motion.x + acceleration, speed)  # Smaller of either
+			velocity_vec.x = min(velocity_vec.x + acceleration, speed)  # Smaller of either
 			sprite.flip_h = false
 			animation_state.travel("run_right")
 		elif  Input.is_action_pressed("ui_left"):
-			motion.x =  max(motion.x - acceleration, -speed)
+			velocity_vec.x =  max(velocity_vec.x - acceleration, -speed)
 			sprite.flip_h = true
 			animation_state.travel("run_right")
-		else:
-			motion.x = lerp(motion.x, 0, deacceleration_fraction)  # Smooth de-acceleration
+		else:  # No left/right input
+			if is_on_floor():
+				velocity_vec.x = lerp(velocity_vec.x, 0, deacceleration_fraction)  # Smooth de-acceleration
 			animation_state.travel("Idle_right")
+
 		# JUMP
 		if Input.is_action_just_pressed("ui_up"):
 			if is_on_floor():
-				motion.y = jump
+				velocity_vec.y = jump
 				animation_state.travel("jump_loop_right")
 			elif jump_count < extra_jumps and not mothless:
-				motion.y = jump
+				velocity_vec.y = jump * extra_jump_percent
 				jump_count += 1
 		if is_on_floor():
 			jump_count = 0
 		else:
 			animation_state.travel("fall_loop_right")
 
-		motion = move_and_slide(motion, UP)
+		velocity_vec = move_and_slide(velocity_vec, UP, false, 10)
 	
 	
 	if Input.is_action_just_pressed("click"):
-		if not launch_mode and not mothless and is_on_floor():
-			launch_mode = true
-			emit_signal("enter_launch_mode", self)
-		elif launch_mode:
+		if not throw_mode and not mothless and is_on_floor():
+			throw_mode = true
+			emit_signal("enter_throw_mode", self)
+		elif throw_mode:
 			emit_signal("launch")
-			launch_mode = false
+			throw_mode = false
 			mothless = true
 		elif mothless:
 			emit_signal("recall_moth")

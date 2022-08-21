@@ -13,7 +13,7 @@ onready var vertex : Vector2 = Vector2.INF
 
 
 func _ready():
-	player.connect("enter_launch_mode", self, "create_moth")
+	player.connect("enter_throw_mode", self, "create_moth")
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
 

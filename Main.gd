@@ -106,6 +106,9 @@ func _draw():
 
 
 func _process(delta):
+	if Input.is_action_just_pressed("reset"):
+		player.die()
+	
 	if draw_trayectory:
 		trayectory.show()
 		update_trajectory(delta)
@@ -115,6 +118,6 @@ func _process(delta):
 func _on_Spikes_body_entered(body):
 	if body == player:
 		print("DEAD") 
-		player.position = Checkpoint.last_position
+		player.die()
 		# TODO : reset everything else too
 

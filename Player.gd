@@ -28,6 +28,10 @@ export var extra_jump_percent = 0.8
 func _ready():
 	animation_tree.active = true
 
+func die():
+	position = Checkpoint.last_position
+
+
 func _physics_process(_delta):
 
 	# GRAVITY

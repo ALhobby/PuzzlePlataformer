@@ -8,11 +8,20 @@ onready var new_moth : Node = null
 onready var trayectory = $Line2D
 onready var draw_trayectory : bool = false
 onready var throw_range_x = 180
-onready var throw_range_y = -200
+onready var throw_range_y = -150
 onready var vertex : Vector2 = Vector2.INF
 
 
+func _enter_tree():
+	"""If we have the player position saved at a checkpoint, load the player
+	there instead before '_ready()' gets called
+	"""
+	if Checkpoint.last_position:
+		$Player.position = Checkpoint.last_position
+
+
 func _ready():
+	print("READY CALLED")
 	player.connect("enter_throw_mode", self, "create_moth")
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
@@ -21,7 +30,7 @@ func _ready():
 func create_moth(launcher : Node):
 	""" Instance a new Moth scene
 	"""
-	if new_moth != null:
+	if new_moth:
 		remove_child(new_moth)
 	new_moth = moth.instance()
 	new_moth.global_position = launcher.global_position + Vector2(0,-40)  # Spawn on top of player
@@ -103,8 +112,9 @@ func _process(delta):
 		update()  # Draw
 
 
-
-
 func _on_Spikes_body_entered(body):
 	if body == player:
 		print("DEAD") 
+		player.position = Checkpoint.last_position
+		# TODO : reset everything else too
+

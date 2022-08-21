@@ -29,6 +29,7 @@ func _ready():
 	animation_tree.active = true
 
 func _physics_process(_delta):
+
 	# GRAVITY
 	velocity_vec.y += gravity
 	
@@ -59,6 +60,10 @@ func _physics_process(_delta):
 			jump_count = 0
 		else:
 			animation_state.travel("fall_loop_right")
+
+		# Go through 1-way platforms
+		if Input.is_action_pressed("ui_down") and is_on_floor():
+			self.position = Vector2(self.position.x, self.position.y + 1)
 
 		velocity_vec = move_and_slide(velocity_vec, UP, false, 10)
 	

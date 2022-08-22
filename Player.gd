@@ -4,7 +4,7 @@ signal enter_throw_mode(node)
 signal launch()
 signal recall_moth()
 
-const speed = 240
+const speed = 240  # Running speed
 const jump = -900  # Negative because negative 'y' is up
 const gravity = 50
 const acceleration = 100
@@ -28,8 +28,10 @@ export var extra_jump_percent = 0.8
 func _ready():
 	animation_tree.active = true
 
+
 func die():
-	position = Checkpoint.last_position
+	if Checkpoint.last_position:
+		position = Checkpoint.last_position
 
 
 func _physics_process(_delta):

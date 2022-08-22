@@ -8,20 +8,13 @@ onready var new_moth : Node = null
 onready var trayectory = $Line2D
 onready var draw_trayectory : bool = false
 onready var throw_range_x = 180
-onready var throw_range_y = -150
+onready var throw_range_y = -120
 onready var vertex : Vector2 = Vector2.INF
-
-
-func _enter_tree():
-	"""If we have the player position saved at a checkpoint, load the player
-	there instead before '_ready()' gets called
-	"""
-	if Checkpoint.last_position:
-		$Player.position = Checkpoint.last_position
-
+onready var end_point : Vector2 = Vector2.ZERO
 
 func _ready():
 	print("READY CALLED")
+	Checkpoint.set_respawn_pos(player.position)  # Set initial respawn point
 	player.connect("enter_throw_mode", self, "create_moth")
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
@@ -49,17 +42,27 @@ func calculate_trayectory():
 	"""
 	
 	var min_distance_for_collision = 5  # Minimum distance from where to start checking for collisions
+	var min_x_distance = 0  # Minimum distance mouse needs from Vest for line to be drawn
 	var x_distance_buffer = 100  # Additional distance for the for loop to cover, in case moth falls lower than the player position
 	
+	
 	var start_point = new_moth.global_position
-	var x_distance = clamp(get_global_mouse_position().x, start_point.x-throw_range_x, start_point.x+throw_range_x)
-	var end_point = Vector2(x_distance, start_point.y)
+	var mouse_pos = get_global_mouse_position()
+	var x_distance = null
+	if start_point.x < mouse_pos.x:  # Shooting right
+		x_distance = clamp(mouse_pos.x, start_point.x+min_x_distance, start_point.x+throw_range_x)
+	elif start_point.x > mouse_pos.x:  # Shooting left
+		x_distance = clamp(mouse_pos.x, start_point.x-throw_range_x, start_point.x-min_x_distance)
+	if not x_distance:
+		return
+	end_point = Vector2(x_distance, start_point.y)
 	vertex = Vector2((start_point.x+x_distance)/2, start_point.y+throw_range_y)
 	var output = PoolVector2Array()
 	var space = get_world_2d().get_direct_space_state()
 
 	var point : Vector2
 	if  end_point.x > start_point.x:  # Shooting right
+		player.sprite.flip_h = false
 		for i in range(start_point.x, end_point.x + x_distance_buffer):
 			var a = (start_point.y-vertex.y)/((vertex.x-start_point.x)*(vertex.x-end_point.x))
 			point = Vector2(i, start_point.y - a*(i-start_point.x)*(i-end_point.x))
@@ -70,6 +73,7 @@ func calculate_trayectory():
 			output.append(point) 
 
 	elif end_point.x < start_point.x:  # Shooting left
+		player.sprite.flip_h = true
 		for i in range(start_point.x, end_point.x - x_distance_buffer, -1):
 			var a = (start_point.y-vertex.y)/((vertex.x-start_point.x)*(vertex.x-end_point.x))
 			point = Vector2(i, start_point.y - a*(i-start_point.x)*(i-end_point.x))
@@ -88,7 +92,9 @@ func update_trajectory(_delta):
 	""" Reset and refull the 'trayectory' line2D
 	"""
 	trayectory.clear_points()
-	trayectory.points = calculate_trayectory()
+	var output_of_calc_trayect = calculate_trayectory()
+	if output_of_calc_trayect:
+		trayectory.points = output_of_calc_trayect
 
 
 func launch_moth():
@@ -96,6 +102,13 @@ func launch_moth():
 	trayectory.clear_points()
 	draw_trayectory = false
 	new_moth.launched = true
+
+	var launch_unit_vector = new_moth.global_position.direction_to(vertex).normalized()
+	var theta = launch_unit_vector.angle_to(Vector2.RIGHT)
+	print("Theta: ", rad2deg(theta))
+	var launch_vector = 1000 * launch_unit_vector
+	print("launch_vector: ", launch_vector)
+	new_moth.velocity_vec = launch_vector
 	update()
 
 
@@ -103,6 +116,9 @@ func _draw():
 	#draw_circle(get_global_mouse_position(), 5.0, Color(1,0,0,1))
 	if draw_trayectory:
 		draw_circle(vertex, 10.0, Color(0,1,0,1))  # Draw vertex of parabola
+		draw_circle(end_point, 10.0, Color(0,1,1,1))
+	if new_moth:
+		draw_circle(new_moth.global_position, 10.0, Color(1,1,0,1))  # Draw vertex of parabola
 
 
 func _process(delta):
@@ -116,7 +132,7 @@ func _process(delta):
 
 
 func _on_Spikes_body_entered(body):
-	if body == player:
+	if body.get_name() == "Player":
 		print("DEAD") 
 		player.die()
 		# TODO : reset everything else too

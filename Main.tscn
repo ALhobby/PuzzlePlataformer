@@ -296,7 +296,7 @@ extents = Vector2( 160, 32 )
 extents = Vector2( 96, 32 )
 
 [sub_resource type="RectangleShape2D" id=37]
-extents = Vector2( 96, 32 )
+extents = Vector2( 184, 32 )
 
 [sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 320, 31.9999 )
@@ -328,7 +328,7 @@ tile_set = SubResource( 5 )
 show_collision = true
 collision_layer = 5
 format = 1
-tile_data = PoolIntArray( 131122, 1, 4, 131133, 1, 1, 131134, 1, 2, 131135, 1, 2, 196647, 1, 5, 196648, 1, 7, 196669, 1, 0, 196670, 1, 0, 196671, 1, 0, 327679, 1, 1, 262144, 1, 3, 262198, 1, 4, 262201, 1, 4, 262205, 1, 0, 262206, 1, 0, 262207, 1, 0, 393215, 1, 0, 327680, 1, 2, 327693, 1, 1, 327694, 1, 2, 327695, 1, 2, 327696, 1, 2, 327697, 1, 2, 327698, 1, 2, 327699, 1, 3, 327707, 1, 1, 327708, 1, 2, 327709, 1, 2, 327710, 1, 2, 327711, 1, 2, 327712, 1, 2, 327713, 1, 3, 327726, 1, 1, 327727, 1, 2, 327728, 1, 2, 327729, 1, 3, 327734, 1, 0, 327737, 1, 0, 327741, 1, 0, 327742, 1, 0, 327743, 1, 0, 458751, 1, 0, 393216, 1, 2, 393221, 1, 5, 393222, 1, 7, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0, 393243, 1, 0, 393244, 1, 0, 393245, 1, 0, 393246, 1, 0, 393247, 1, 0, 393248, 1, 0, 393249, 1, 0, 393250, 1, 3, 393256, 1, 5, 393257, 1, 7, 393262, 1, 0, 393263, 1, 0, 393264, 1, 0, 393265, 1, 0, 393270, 1, 0, 393273, 1, 0, 393277, 1, 0, 393278, 1, 0, 393279, 1, 0, 524287, 1, 0, 458752, 1, 2, 458762, 1, 1, 458763, 1, 2, 458764, 1, 2, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 3, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 458784, 1, 0, 458785, 1, 0, 458786, 1, 0, 458798, 1, 0, 458799, 1, 0, 458800, 1, 0, 458801, 1, 0, 458806, 1, 0, 458809, 1, 0, 458813, 1, 0, 458814, 1, 0, 458815, 1, 0, 589823, 1, 0, 524288, 1, 2, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524315, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0, 524322, 1, 0, 524334, 1, 0, 524335, 1, 0, 524336, 1, 0, 524337, 1, 0, 524342, 1, 0, 524345, 1, 0, 524349, 1, 0, 524350, 1, 0, 524351, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 2, 589826, 1, 2, 589827, 1, 2, 589828, 1, 2, 589829, 1, 2, 589830, 1, 2, 589831, 1, 2, 589832, 1, 2, 589833, 1, 2, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 2, 589846, 1, 2, 589847, 1, 3, 589851, 1, 0, 589852, 1, 0, 589853, 1, 0, 589854, 1, 0, 589855, 1, 0, 589856, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 2, 589860, 1, 2, 589870, 1, 0, 589871, 1, 0, 589872, 1, 0, 589873, 1, 0, 589874, 1, 2, 589875, 1, 2, 589876, 1, 2, 589877, 1, 2, 589878, 1, 0, 589881, 1, 0, 589885, 1, 0, 589886, 1, 0, 589887, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 655390, 1, 0, 655397, 1, 0, 655398, 1, 0, 655399, 1, 0, 655400, 1, 0, 655401, 1, 0, 655402, 1, 0, 655403, 1, 0, 655404, 1, 0, 655405, 1, 0, 655406, 1, 0, 655407, 1, 0, 655413, 1, 0, 655414, 1, 0, 720949, 1, 0, 720950, 1, 0, 786485, 1, 0, 786486, 1, 0, 852021, 1, 0, 852022, 1, 0, 852023, 1, 2, 852024, 1, 3, 852037, 1, 1, 852038, 1, 2, 852039, 1, 2, 852040, 1, 2, 852041, 1, 3, 917557, 1, 0, 917558, 1, 0, 917559, 1, 0, 917560, 1, 0, 917573, 1, 0, 917574, 1, 0, 917575, 1, 0, 917576, 1, 0, 917577, 1, 0, 983093, 1, 0, 983094, 1, 0, 983095, 1, 0, 983096, 1, 0, 983107, 1, 1, 983108, 1, 2, 983109, 1, 0, 983110, 1, 0, 983111, 1, 0, 983112, 1, 0, 983113, 1, 0, 1048629, 1, 0, 1048630, 1, 0, 1048631, 1, 0, 1048632, 1, 0, 1048643, 1, 0, 1048644, 1, 0, 1048645, 1, 0, 1048646, 1, 0, 1048647, 1, 0, 1048648, 1, 0, 1048649, 1, 0, 1114165, 1, 0, 1114166, 1, 0, 1114167, 1, 0, 1114168, 1, 0, 1114169, 1, 2, 1114179, 1, 0, 1114180, 1, 0, 1114181, 1, 0, 1114182, 1, 0, 1114183, 1, 0, 1114184, 1, 0, 1114185, 1, 0, 1179701, 1, 0, 1179702, 1, 0, 1179703, 1, 0, 1179704, 1, 0, 1179705, 1, 0, 1179715, 1, 0, 1179716, 1, 0, 1179717, 1, 0, 1179718, 1, 0, 1179719, 1, 0, 1179720, 1, 0, 1179721, 1, 0, 1245238, 1, 0, 1245239, 1, 0, 1245240, 1, 0, 1245241, 1, 0, 1245251, 1, 0, 1245252, 1, 0, 1245253, 1, 0, 1245254, 1, 0, 1245255, 1, 0, 1245256, 1, 0, 1245257, 1, 0, 1310778, 1, 0, 1310779, 1, 0, 1310780, 1, 0, 1310781, 1, 0, 1310782, 1, 0, 1310783, 1, 0, 1310784, 1, 0, 1310785, 1, 0, 1310786, 1, 0 )
+tile_data = PoolIntArray( 131122, 1, 4, 131133, 1, 1, 131134, 1, 2, 131135, 1, 2, 196647, 1, 5, 196648, 1, 7, 196669, 1, 0, 196670, 1, 0, 196671, 1, 0, 327679, 1, 1, 262144, 1, 3, 262198, 1, 4, 262201, 1, 4, 262205, 1, 0, 262206, 1, 0, 262207, 1, 0, 393215, 1, 0, 327680, 1, 2, 327693, 1, 1, 327694, 1, 2, 327695, 1, 2, 327696, 1, 2, 327697, 1, 2, 327698, 1, 2, 327699, 1, 3, 327707, 1, 1, 327708, 1, 2, 327709, 1, 2, 327710, 1, 2, 327711, 1, 2, 327712, 1, 2, 327713, 1, 3, 327726, 1, 1, 327727, 1, 2, 327728, 1, 2, 327729, 1, 3, 327734, 1, 0, 327737, 1, 0, 327741, 1, 0, 327742, 1, 0, 327743, 1, 0, 458751, 1, 0, 393216, 1, 2, 393221, 1, 5, 393222, 1, 7, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 1, 0, 393243, 1, 0, 393244, 1, 0, 393245, 1, 0, 393246, 1, 0, 393247, 1, 0, 393248, 1, 0, 393249, 1, 0, 393250, 1, 3, 393256, 1, 5, 393257, 1, 7, 393262, 1, 0, 393263, 1, 0, 393264, 1, 0, 393265, 1, 0, 393270, 1, 0, 393273, 1, 0, 393277, 1, 0, 393278, 1, 0, 393279, 1, 0, 524287, 1, 0, 458752, 1, 2, 458762, 1, 1, 458763, 1, 2, 458764, 1, 2, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 3, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 458784, 1, 0, 458785, 1, 0, 458786, 1, 0, 458798, 1, 0, 458799, 1, 0, 458800, 1, 0, 458801, 1, 0, 458806, 1, 0, 458809, 1, 0, 458813, 1, 0, 458814, 1, 0, 458815, 1, 0, 589823, 1, 0, 524288, 1, 2, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524315, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 1, 0, 524322, 1, 0, 524334, 1, 0, 524335, 1, 0, 524336, 1, 0, 524337, 1, 0, 524342, 1, 0, 524345, 1, 0, 524349, 1, 0, 524350, 1, 0, 524351, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 2, 589826, 1, 2, 589827, 1, 2, 589828, 1, 2, 589829, 1, 2, 589830, 1, 2, 589831, 1, 2, 589832, 1, 2, 589833, 1, 2, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 2, 589846, 1, 2, 589847, 1, 3, 589851, 1, 0, 589852, 1, 0, 589853, 1, 0, 589854, 1, 0, 589855, 1, 0, 589856, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 2, 589860, 1, 2, 589870, 1, 0, 589871, 1, 0, 589872, 1, 0, 589873, 1, 0, 589874, 1, 2, 589875, 1, 2, 589876, 1, 2, 589877, 1, 2, 589878, 1, 0, 589881, 1, 0, 589885, 1, 0, 589886, 1, 0, 589887, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 655390, 1, 0, 655397, 1, 0, 655398, 1, 0, 655399, 1, 0, 655400, 1, 0, 655401, 1, 0, 655402, 1, 0, 655403, 1, 0, 655404, 1, 0, 655405, 1, 0, 655406, 1, 0, 655407, 1, 0, 655413, 1, 0, 655414, 1, 0, 720949, 1, 0, 720950, 1, 0, 786485, 1, 0, 786486, 1, 0, 786514, 1, 1, 786515, 1, 2, 786516, 1, 2, 786517, 1, 2, 786518, 1, 2, 786519, 1, 2, 852021, 1, 0, 852022, 1, 0, 852023, 1, 2, 852024, 1, 3, 852037, 1, 1, 852038, 1, 2, 852039, 1, 2, 852040, 1, 2, 852041, 1, 3, 852050, 1, 0, 852051, 1, 0, 852052, 1, 0, 852053, 1, 0, 852054, 1, 0, 917557, 1, 0, 917558, 1, 0, 917559, 1, 0, 917560, 1, 0, 917573, 1, 0, 917574, 1, 0, 917575, 1, 0, 917576, 1, 0, 917577, 1, 0, 917589, 1, 0, 983093, 1, 0, 983094, 1, 0, 983095, 1, 0, 983096, 1, 0, 983107, 1, 1, 983108, 1, 2, 983109, 1, 0, 983110, 1, 0, 983111, 1, 0, 983112, 1, 0, 983113, 1, 0, 983125, 1, 0, 1048629, 1, 0, 1048630, 1, 0, 1048631, 1, 0, 1048632, 1, 0, 1048643, 1, 0, 1048644, 1, 0, 1048645, 1, 0, 1048646, 1, 0, 1048647, 1, 0, 1048648, 1, 0, 1048649, 1, 0, 1048658, 1, 1, 1048659, 1, 2, 1048660, 1, 2, 1048661, 1, 0, 1114165, 1, 0, 1114166, 1, 0, 1114167, 1, 0, 1114168, 1, 0, 1114169, 1, 2, 1114179, 1, 0, 1114180, 1, 0, 1114181, 1, 0, 1114182, 1, 0, 1114183, 1, 0, 1114184, 1, 0, 1114185, 1, 0, 1114186, 1, 3, 1114194, 1, 0, 1114195, 1, 0, 1114196, 1, 0, 1114197, 1, 0, 1179701, 1, 0, 1179702, 1, 0, 1179703, 1, 0, 1179704, 1, 0, 1179705, 1, 0, 1179715, 1, 0, 1179716, 1, 0, 1179717, 1, 0, 1179718, 1, 0, 1179719, 1, 0, 1179720, 1, 0, 1179721, 1, 0, 1179722, 1, 0, 1179730, 1, 0, 1179731, 1, 0, 1179732, 1, 0, 1179733, 1, 0, 1245238, 1, 0, 1245239, 1, 0, 1245240, 1, 0, 1245241, 1, 0, 1245251, 1, 0, 1245252, 1, 0, 1245253, 1, 0, 1245254, 1, 0, 1245255, 1, 0, 1245256, 1, 0, 1245257, 1, 0, 1245258, 1, 0, 1245266, 1, 0, 1245267, 1, 0, 1245268, 1, 0, 1245269, 1, 0, 1310778, 1, 0, 1310779, 1, 0, 1310780, 1, 0, 1310781, 1, 0, 1310782, 1, 0, 1310783, 1, 0, 1310784, 1, 0, 1310785, 1, 0, 1310786, 1, 0, 1310795, 1, 0, 1310796, 1, 0, 1310797, 1, 0, 1310798, 1, 0, 1310799, 1, 0, 1310800, 1, 0, 1310801, 1, 0 )
 
 [node name="Room1" type="Area2D" parent="Map"]
 collision_layer = 2
@@ -387,14 +387,14 @@ script = ExtResource( 4 )
 tile_set = SubResource( 34 )
 collision_use_parent = true
 format = 1
-tile_data = PoolIntArray( 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 589867, 0, 0, 589868, 0, 0, 589869, 0, 0, 1245242, 0, 0, 1245243, 0, 0, 1245244, 0, 0, 1245245, 0, 0, 1245246, 0, 0, 1245247, 0, 0, 1245248, 0, 0, 1245249, 0, 0, 1245250, 0, 0 )
+tile_data = PoolIntArray( 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 589867, 0, 0, 589868, 0, 0, 589869, 0, 0, 1245242, 0, 0, 1245243, 0, 0, 1245244, 0, 0, 1245245, 0, 0, 1245246, 0, 0, 1245247, 0, 0, 1245248, 0, 0, 1245249, 0, 0, 1245250, 0, 0, 1245259, 0, 0, 1245260, 0, 0, 1245261, 0, 0, 1245262, 0, 0, 1245263, 0, 0, 1245264, 0, 0, 1245265, 0, 0 )
 
 [node name="ButtonManager" type="Node2D" parent="World"]
 
 [node name="Button" type="Area2D" parent="World/ButtonManager"]
 position = Vector2( 1440, 560 )
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="World/ButtonManager/Button"]
@@ -407,8 +407,8 @@ shape = SubResource( 29 )
 
 [node name="Button2" type="Area2D" parent="World/ButtonManager"]
 position = Vector2( 2304, 560 )
-collision_layer = 4
-collision_mask = 4
+collision_layer = 0
+collision_mask = 3
 script = ExtResource( 2 )
 button_id = 2
 
@@ -422,8 +422,8 @@ shape = SubResource( 29 )
 
 [node name="Button3" type="Area2D" parent="World/ButtonManager"]
 position = Vector2( 2304, 560 )
-collision_layer = 4
-collision_mask = 4
+collision_layer = 0
+collision_mask = 3
 script = ExtResource( 2 )
 button_id = 3
 
@@ -437,8 +437,8 @@ shape = SubResource( 29 )
 
 [node name="Button4" type="Area2D" parent="World/ButtonManager"]
 position = Vector2( 3360, 560 )
-collision_layer = 4
-collision_mask = 4
+collision_layer = 0
+collision_mask = 3
 script = ExtResource( 2 )
 button_id = 4
 
@@ -448,6 +448,21 @@ region_enabled = true
 region_rect = Rect2( 901, 481, 54, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/ButtonManager/Button4"]
+shape = SubResource( 29 )
+
+[node name="Button5" type="Area2D" parent="World/ButtonManager"]
+position = Vector2( 5408, 1008 )
+collision_layer = 0
+collision_mask = 3
+script = ExtResource( 2 )
+button_id = 5
+
+[node name="Sprite" type="Sprite" parent="World/ButtonManager/Button5"]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 901, 481, 54, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/ButtonManager/Button5"]
 shape = SubResource( 29 )
 
 [node name="AppearingPlatformManager" type="Node2D" parent="World"]
@@ -504,6 +519,20 @@ region_rect = Rect2( 70, 390, 130, 50 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/AppearingPlatformManager/AppearingPlatform4"]
 position = Vector2( 0, 7.99989 )
 shape = SubResource( 35 )
+
+[node name="AppearingPlatform5" type="StaticBody2D" parent="World/AppearingPlatformManager"]
+position = Vector2( 4992, 824 )
+
+[node name="Sprite" type="Sprite" parent="World/AppearingPlatformManager/AppearingPlatform5"]
+position = Vector2( 8.00007, 0 )
+scale = Vector2( 2.875, 1 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 449, 447, 128, 64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AppearingPlatformManager/AppearingPlatform5"]
+position = Vector2( 8, 0 )
+shape = SubResource( 37 )
 
 [node name="CheckpointManager" type="Node2D" parent="World"]
 
@@ -567,11 +596,27 @@ texture = ExtResource( 6 )
 position = Vector2( 20, 20 )
 shape = SubResource( 44 )
 
+[node name="CheckpointMarker5" type="Area2D" parent="World/CheckpointManager"]
+position = Vector2( 4536, 800 )
+collision_layer = 0
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="World/CheckpointManager/CheckpointMarker5"]
+modulate = Color( 1, 0.858824, 0.34902, 1 )
+position = Vector2( 20, 20 )
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/CheckpointManager/CheckpointMarker5"]
+position = Vector2( 20, 20 )
+shape = SubResource( 44 )
+
 [node name="SpringManager" type="Node2D" parent="World"]
 
 [node name="Spring1" type="Area2D" parent="World/SpringManager"]
 position = Vector2( 112, 232 )
 rotation = 0.595157
+collision_mask = 3
 script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="World/SpringManager/Spring1"]
@@ -585,6 +630,7 @@ shape = SubResource( 38 )
 [node name="Spring2" type="Area2D" parent="World/SpringManager"]
 position = Vector2( 3680, 1056 )
 rotation = 0.785398
+collision_mask = 3
 script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="World/SpringManager/Spring2"]
@@ -595,26 +641,44 @@ texture = ExtResource( 6 )
 position = Vector2( 0, -8 )
 shape = SubResource( 38 )
 
+[node name="Spring3" type="Area2D" parent="World/SpringManager"]
+position = Vector2( 4768, 1056 )
+rotation = 1.0472
+collision_mask = 3
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="World/SpringManager/Spring3"]
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/SpringManager/Spring3"]
+position = Vector2( 0, -8 )
+shape = SubResource( 38 )
+
 [node name="GUI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 184, 496 )
+position = Vector2( 168, 536 )
 collision_mask = 4
 
 [connection signal="body_entered" from="World/Spikes" to="." method="_on_Spikes_body_entered"]
-[connection signal="area_entered" from="World/ButtonManager/Button" to="World/ButtonManager/Button" method="_on_Button_area_entered"]
-[connection signal="area_exited" from="World/ButtonManager/Button" to="World/ButtonManager/Button" method="_on_Button_area_exited"]
-[connection signal="area_entered" from="World/ButtonManager/Button2" to="World/ButtonManager/Button2" method="_on_Button_area_entered"]
-[connection signal="area_exited" from="World/ButtonManager/Button2" to="World/ButtonManager/Button2" method="_on_Button_area_exited"]
-[connection signal="area_entered" from="World/ButtonManager/Button3" to="World/ButtonManager/Button3" method="_on_Button_area_entered"]
-[connection signal="area_exited" from="World/ButtonManager/Button3" to="World/ButtonManager/Button3" method="_on_Button_area_exited"]
-[connection signal="area_entered" from="World/ButtonManager/Button4" to="World/ButtonManager/Button4" method="_on_Button_area_entered"]
-[connection signal="area_exited" from="World/ButtonManager/Button4" to="World/ButtonManager/Button4" method="_on_Button_area_exited"]
+[connection signal="body_entered" from="World/ButtonManager/Button" to="World/ButtonManager/Button" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="World/ButtonManager/Button" to="World/ButtonManager/Button" method="_on_Button_body_exited"]
+[connection signal="body_entered" from="World/ButtonManager/Button2" to="World/ButtonManager/Button2" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="World/ButtonManager/Button2" to="World/ButtonManager/Button2" method="_on_Button_body_exited"]
+[connection signal="body_entered" from="World/ButtonManager/Button3" to="World/ButtonManager/Button3" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="World/ButtonManager/Button3" to="World/ButtonManager/Button3" method="_on_Button_body_exited"]
+[connection signal="body_entered" from="World/ButtonManager/Button4" to="World/ButtonManager/Button4" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="World/ButtonManager/Button4" to="World/ButtonManager/Button4" method="_on_Button_body_exited"]
+[connection signal="body_entered" from="World/ButtonManager/Button5" to="World/ButtonManager/Button5" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="World/ButtonManager/Button5" to="World/ButtonManager/Button5" method="_on_Button_body_exited"]
 [connection signal="body_entered" from="World/CheckpointManager/CheckpointMarker1" to="World/CheckpointManager/CheckpointMarker1" method="_on_CheckpointMarker_body_entered"]
 [connection signal="body_entered" from="World/CheckpointManager/CheckpointMarker2" to="World/CheckpointManager/CheckpointMarker2" method="_on_CheckpointMarker_body_entered"]
 [connection signal="body_entered" from="World/CheckpointManager/CheckpointMarker3" to="World/CheckpointManager/CheckpointMarker3" method="_on_CheckpointMarker_body_entered"]
 [connection signal="body_entered" from="World/CheckpointManager/CheckpointMarker4" to="World/CheckpointManager/CheckpointMarker4" method="_on_CheckpointMarker_body_entered"]
+[connection signal="body_entered" from="World/CheckpointManager/CheckpointMarker5" to="World/CheckpointManager/CheckpointMarker5" method="_on_CheckpointMarker_body_entered"]
 [connection signal="body_entered" from="World/SpringManager/Spring1" to="World/SpringManager/Spring1" method="_on_Spring_body_entered"]
 [connection signal="body_entered" from="World/SpringManager/Spring2" to="World/SpringManager/Spring2" method="_on_Spring_body_entered"]
+[connection signal="body_entered" from="World/SpringManager/Spring3" to="World/SpringManager/Spring3" method="_on_Spring_body_entered"]

@@ -27,6 +27,7 @@ export var extra_jump_percent = 0.8
 
 func _ready():
 	animation_tree.active = true
+	sprite.set_modulate(Color(0,1,0,1))
 
 
 func die():
@@ -82,9 +83,11 @@ func _physics_process(_delta):
 			emit_signal("launch")
 			throw_mode = false
 			mothless = true
+			sprite.set_modulate(Color(1,0,0,1))
 		elif mothless:
 			emit_signal("recall_moth")
 			mothless = false
+			sprite.set_modulate(Color(0,1,0,1))
 
 
 func _on_RoomDetector_area_entered(area):

@@ -34,6 +34,7 @@ func _ready():
 func die():
 	if Checkpoint.last_position:
 		position = Checkpoint.last_position
+	# TODO : reset room on death
 
 
 func _physics_process(_delta):

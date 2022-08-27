@@ -1,0 +1,1 @@
+{"RoomA01":{"coords":[0,384],"neighbors":["RoomA02"]},"RoomA02":{"coords":[640,384],"neighbors":["RoomA01"]}}

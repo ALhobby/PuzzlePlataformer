@@ -37,7 +37,7 @@ func save_map_to_json():
 	# Save dict to file
 	print(output_dict)
 	var file = File.new()
-	var path = "/Users/Tony/GodotProjects/PuzzlePlataformer/map.json"
+	var path = "res://map.json"
 	file.open(path, file.WRITE)
 	file.store_line(to_json(output_dict))
 	file.close()

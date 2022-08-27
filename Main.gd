@@ -24,7 +24,7 @@ func _ready():
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
 	var file = File.new()
-	map_dict = load_json_file("/Users/Tony/GodotProjects/PuzzlePlataformer/map.json")
+	map_dict = load_json_file("res://map.json")
 	#file.store_string("{'Room1': {}, 'Room2': {}, 'Room3': {}}")
 	print("map_dict", map_dict)
 	load_room_and_neighbors('RoomA01')

@@ -3,6 +3,8 @@ extends Node2D
 
 var moth = preload("res://Moth.tscn")
 onready var player = $Player
+onready var map_dict = {}
+onready var loaded_rooms_dict = {}
 
 onready var new_moth : Node = null
 onready var trayectory = $Line2D
@@ -21,7 +23,65 @@ func _ready():
 	player.connect("enter_throw_mode", self, "create_moth")
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
+	var file = File.new()
+	map_dict = load_json_file("/Users/Tony/GodotProjects/DynamicMapLoaderTest/map.json")
+	#file.store_string("{'Room1': {}, 'Room2': {}, 'Room3': {}}")
+	print("map_dict", map_dict)
+	load_room_and_neighbors('RoomA01')
+	player.connect("room_entered", self, "load_room_and_neighbors")
 
+
+func load_json_file(path):
+	"""Loads a JSON file from the given res path and return the loaded JSON object.
+	https://godotengine.org/qa/8291/how-to-parse-a-json-file-i-wrote-myself"""
+	var file = File.new()
+	file.open(path, file.READ)
+	var text = file.get_as_text()
+	print("text", text)
+	var result_json = JSON.parse(text)
+	if result_json.error != OK:
+		print("[load_json_file] Error loading JSON file '" + str(path) + "'.")
+		print("\tError: ", result_json.error)
+		print("\tError Line: ", result_json.error_line)
+		print("\tError String: ", result_json.error_string)
+		return null
+	var obj = result_json.result
+	return obj
+
+
+func load_room_and_neighbors(current_room):
+	"""Loads the current room and every room stored in its 'neighbors' list"""
+	var next_room_resource = null  # Return of 'load' call
+	var next_level = null  # Actual instance of the scene
+	
+	# Main scene. It should almost always already be loaded
+	var coords = map_dict[current_room]["coords"]  # Entered room coords
+	if not loaded_rooms_dict.has(current_room):
+		next_room_resource = load("res://rooms/"+current_room+".tscn")
+		next_level = next_room_resource.instance()
+		next_level.position = Vector2(coords[0], coords[1])
+		loaded_rooms_dict[current_room] = next_level
+		get_tree().root.call_deferred("add_child", next_level)
+	
+	# Neighbors
+	var neighbors = map_dict[current_room]["neighbors"]
+	for room in neighbors:
+		if not loaded_rooms_dict.has(room):
+			next_room_resource = load("res://rooms/"+room+".tscn")
+			print("Room ", room, " loaded!")
+			next_level = next_room_resource.instance()
+			coords = map_dict[room]["coords"]
+			next_level.position = Vector2(coords[0], coords[1])
+			loaded_rooms_dict[room] = next_level
+			get_tree().root.call_deferred("add_child", next_level)
+	
+	print("loaded_rooms_dict: ", loaded_rooms_dict)
+	# Unload far away rooms
+	for loaded_room in loaded_rooms_dict.keys():
+		if loaded_room != current_room and not neighbors.has(loaded_room):
+			print("Unloading ", loaded_room)
+			loaded_rooms_dict[loaded_room].queue_free()
+			loaded_rooms_dict.erase(loaded_room)
 
 func create_moth(launcher : Node):
 	""" Instance a new Moth scene

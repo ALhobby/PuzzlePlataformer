@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal enter_throw_mode(node)
 signal launch()
 signal recall_moth()
+signal room_entered(room_name)
 
 const speed = 240  # Running speed
 const jump = -900  # Negative because negative 'y' is up
@@ -91,13 +92,14 @@ func _physics_process(_delta):
 
 
 func _on_RoomDetector_area_entered(area):
-	var collision_shape = area.get_node("CollisionShape2D")
-	var size = collision_shape.shape.extents*2  # Get size of the room
-	
-	# Set dimensions of the camera in the new room
-	var camera = $Camera2D
-	camera.limit_top = collision_shape.global_position.y - size.y/2
-	camera.limit_left = collision_shape.global_position.x - size.x/2
-	camera.limit_bottom = camera.limit_top + size.y
-	camera.limit_right = camera.limit_left + size.x
+	if area.has_method("get_room_name"):
+		var collision_shape = area.get_node("CollisionShape2D")
+		var size = collision_shape.shape.extents*2  # Get size of the room
+		emit_signal("room_entered", area.room_name)
+		# Set dimensions of the camera in the new room
+		var camera = $Camera2D
+		camera.limit_top = collision_shape.global_position.y - size.y/2
+		camera.limit_left = collision_shape.global_position.x - size.x/2
+		camera.limit_bottom = camera.limit_top + size.y
+		camera.limit_right = camera.limit_left + size.x
 

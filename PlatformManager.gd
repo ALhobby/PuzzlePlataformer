@@ -29,11 +29,10 @@ func _ready():
 func make_platform_solid(button_id):
 	plat_tilemap.call_deferred("set_collision_layer_bit", 0, true)
 	plat_tilemap.call_deferred("set_collision_mask_bit", 0, true)
-	plat_tilemap.modulate = Color(1,1,1,1)
 	for tile in plat_tilemap.tile_set.get_tiles_ids():
 		plat_tilemap.tile_set.tile_get_texture(tile).pause = false
 		print("PAUSE tile ", tile, ": ", plat_tilemap.tile_set.tile_get_texture(tile).pause)
-
+	plat_tilemap.modulate = Color(1,1,1,1)
 
 func make_platform_ghost(button_id):
 	plat_tilemap.call_deferred("set_collision_layer_bit", 0, false)

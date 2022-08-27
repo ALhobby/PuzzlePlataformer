@@ -671,7 +671,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3582, 607 )
+position = Vector2( 128, 72 )
 collision_mask = 4
 
 [connection signal="body_entered" from="World/Spikes" to="." method="_on_Spikes_body_entered"]

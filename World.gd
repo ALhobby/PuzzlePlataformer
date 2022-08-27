@@ -3,6 +3,10 @@ extends Node2D
 onready var button_manager : Node2D = $ButtonManager
 onready var appearing_platform_manager : Node2D = $AppearingPlatformManager
 
+"""This script manages buttons and appearing platforms!! It will need some work
+after the map rework to function properly again...
+"""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for button in button_manager.get_children():

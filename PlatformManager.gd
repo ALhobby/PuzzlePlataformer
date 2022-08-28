@@ -18,12 +18,12 @@ func _ready():
 		elif node.is_in_group("Platform"):
 			print("Platform tileset name: ", node)
 			# Set collision masks and layers to 0
-			node.collision_layer = 0
-			node.collision_mask = 0
 			plat_tilemap = node
+			plat_tilemap.call_deferred("set_collision_layer_bit", 0, false)
+			plat_tilemap.call_deferred("set_collision_mask_bit", 0, false)
 			plat_tilemap.modulate = Color(1,1,1,0.2)
 		else:
-			print("WARNING: unexpected node in PlatformManager lacks correct group")
+			print("WARNING: unexpected node in PlatformManager ", node, " lacks correct group")
 
 
 func make_platform_solid(button_id):
@@ -37,4 +37,8 @@ func make_platform_solid(button_id):
 func make_platform_ghost(button_id):
 	plat_tilemap.call_deferred("set_collision_layer_bit", 0, false)
 	plat_tilemap.call_deferred("set_collision_mask_bit", 0, false)
+	for tile in plat_tilemap.tile_set.get_tiles_ids():
+		# Move animation back to frame 0 and pause again
+		plat_tilemap.tile_set.tile_get_texture(tile).current_frame = 0
+		plat_tilemap.tile_set.tile_get_texture(tile).pause = true
 	plat_tilemap.modulate = Color(1,1,1,0.2)

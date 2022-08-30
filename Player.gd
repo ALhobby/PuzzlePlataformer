@@ -5,7 +5,7 @@ signal launch()
 signal recall_moth()
 signal room_entered(room_name)
 
-const speed = 240  # Running speed
+const speed = 210  # Running speed
 const jump = -900  # Negative because negative 'y' is up
 const gravity = 50
 const acceleration = 100
@@ -28,7 +28,7 @@ export var extra_jump_percent = 0.8
 
 func _ready():
 	animation_tree.active = true
-	sprite.set_modulate(Color(0,1,0,1))
+	#sprite.set_modulate(Color(0,1,0,1))
 
 
 func die():
@@ -89,7 +89,7 @@ func _physics_process(_delta):
 		elif mothless:
 			emit_signal("recall_moth")
 			mothless = false
-			sprite.set_modulate(Color(0,1,0,1))
+			#sprite.set_modulate(Color(0,1,0,1))
 
 
 func _on_RoomDetector_area_entered(area):

@@ -1,1 +1,8 @@
-.DS_Store
+.import
+
+**/*.import
+**/**/*.import
+.import/**
+
+**/.import/**
+

@@ -3,10 +3,11 @@ extends KinematicBody2D
 signal enter_throw_mode(node)
 signal launch()
 signal recall_moth()
+signal room_entered(room_name)
 
-const speed = 240  # Running speed
-const jump = -900  # Negative because negative 'y' is up
-const gravity = 50
+const speed = 210  # Running speed
+const jump = -550  # Negative because negative 'y' is up
+const gravity = 40
 const acceleration = 100
 const deacceleration_fraction = 0.4
 
@@ -27,12 +28,13 @@ export var extra_jump_percent = 0.8
 
 func _ready():
 	animation_tree.active = true
-	sprite.set_modulate(Color(0,1,0,1))
+	#sprite.set_modulate(Color(0,1,0,1))
 
 
 func die():
 	if Checkpoint.last_position:
 		position = Checkpoint.last_position
+	# TODO : reset room on death
 
 
 func _physics_process(_delta):
@@ -87,17 +89,18 @@ func _physics_process(_delta):
 		elif mothless:
 			emit_signal("recall_moth")
 			mothless = false
-			sprite.set_modulate(Color(0,1,0,1))
+			sprite.set_modulate(Color(1,1,1,1))
 
 
 func _on_RoomDetector_area_entered(area):
-	var collision_shape = area.get_node("CollisionShape2D")
-	var size = collision_shape.shape.extents*2  # Get size of the room
-	
-	# Set dimensions of the camera in the new room
-	var camera = $Camera2D
-	camera.limit_top = collision_shape.global_position.y - size.y/2
-	camera.limit_left = collision_shape.global_position.x - size.x/2
-	camera.limit_bottom = camera.limit_top + size.y
-	camera.limit_right = camera.limit_left + size.x
+	if area.has_method("get_room_name"):
+		var collision_shape = area.get_node("CollisionShape2D")
+		var size = collision_shape.shape.extents*2  # Get size of the room
+		emit_signal("room_entered", area.room_name)
+		# Set dimensions of the camera in the new room
+		var camera = $Camera2D
+		camera.limit_top = collision_shape.global_position.y - size.y/2
+		camera.limit_left = collision_shape.global_position.x - size.x/2
+		camera.limit_bottom = camera.limit_top + size.y
+		camera.limit_right = camera.limit_left + size.x
 

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-export var bounce_strength : int = 1300
+export var bounce_strength : int = 1000
 
 onready var sprite = $Sprite
 onready var theta = self.rotation_degrees  # Angle of the spring

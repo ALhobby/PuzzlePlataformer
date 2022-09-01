@@ -3,25 +3,21 @@
 [ext_resource path="res://assets/Other/Spring.png" type="Texture" id=1]
 [ext_resource path="res://room_elements/Spring.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 32, 8 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 6 )
 
 [node name="Spring1" type="Area2D"]
-position = Vector2( 0, 0 )
-rotation = 0.0
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.00827026, -6.02876 )
-scale = Vector2( 3.2, 1.9 )
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 region_rect = Rect2( 20, -1, 21, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -8 )
-shape = SubResource( 38 )
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Spring_body_entered"]

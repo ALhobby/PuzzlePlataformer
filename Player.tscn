@@ -55,7 +55,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=19]
 resource_name = "fall_down_rigth"
-length = 0.2
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -63,7 +63,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.05 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 7, 8 ]
@@ -71,7 +71,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=20]
 resource_name = "fall_loop_right"
-length = 0.1
+length = 0.05
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -88,7 +88,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "jump_loop_right"
-length = 0.1
+length = 0.05
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -105,7 +105,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "jump_off_rigth"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -113,7 +113,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 6, 7 ]
@@ -234,7 +234,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 hframes = 4
 vframes = 3
-frame = 11
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle_right = SubResource( 3 )

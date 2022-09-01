@@ -10,7 +10,7 @@ onready var new_moth : Node = null
 onready var trayectory = $Line2D
 onready var draw_trayectory : bool = false
 onready var throw_range_x = 180
-onready var throw_range_y = -120
+onready var throw_range_y = -100
 onready var vertex : Vector2 = Vector2.INF
 onready var start_point : Vector2 = Vector2.ZERO
 onready var end_point : Vector2 = Vector2.ZERO
@@ -26,7 +26,7 @@ func _ready():
 	var file = File.new()
 	map_dict = load_json_file("res://map.json")
 	#file.store_string("{'Room1': {}, 'Room2': {}, 'Room3': {}}")
-	print("map_dict", map_dict)
+	print("Full map_dict", map_dict)
 	load_room_and_neighbors('RoomA01')
 	player.connect("room_entered", self, "load_room_and_neighbors")
 
@@ -74,14 +74,15 @@ func load_room_and_neighbors(current_room):
 			next_level.position = Vector2(coords[0], coords[1])
 			loaded_rooms_dict[room] = next_level
 			get_tree().root.call_deferred("add_child", next_level)
-	
-	print("loaded_rooms_dict: ", loaded_rooms_dict)
+
 	# Unload far away rooms
 	for loaded_room in loaded_rooms_dict.keys():
 		if loaded_room != current_room and not neighbors.has(loaded_room):
 			print("Unloading ", loaded_room)
 			loaded_rooms_dict[loaded_room].queue_free()
 			loaded_rooms_dict.erase(loaded_room)
+			
+	print("loaded_rooms_dict: ", loaded_rooms_dict)
 
 func create_moth(launcher : Node):
 	""" Instance a new Moth scene
@@ -166,7 +167,7 @@ func launch_moth():
 	draw_trayectory = false
 	new_moth.launched = true
 
-	var launch_vector_magnitude = 900
+	var launch_vector_magnitude = 800
 	#var target_point = new_moth.global_position + Vector2(0.2,-1)
 	var launch_unit_vector = new_moth.global_position.direction_to(target_point).normalized()
 	var launch_vector = launch_vector_magnitude * launch_unit_vector

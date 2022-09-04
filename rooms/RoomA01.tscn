@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://room_elements/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://room_elements/PlatformManager.tscn" type="PackedScene" id=2]
@@ -6,12 +6,12 @@
 [ext_resource path="res://assets/Other/spikes.png" type="Texture" id=4]
 [ext_resource path="res://room_elements/CheckpointMarker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://room_elements/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://assets/Other/godot_round_light.png" type="Texture" id=8]
+[ext_resource path="res://room_elements/Lamp.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 180 )
-
-[sub_resource type="ConvexPolygonShape2D" id=35]
-points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
 
 [sub_resource type="TileSet" id=34]
 1/name = "spikes.png 1"
@@ -24,17 +24,19 @@ points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 35 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 35 ),
+"shape": null,
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
+
+[sub_resource type="CircleShape2D" id=35]
+radius = 65.35
 
 [node name="RoomA01" type="Area2D"]
 script = ExtResource( 3 )
@@ -67,5 +69,26 @@ tile_data = PoolIntArray( 917520, 1, 0, 917521, 1, 0, 917522, 1, 0, 917523, 1, 0
 
 [node name="Button" parent="PlatformManager" index="1"]
 position = Vector2( 220, 320 )
+
+[node name="Lamp" type="Area2D" parent="."]
+modulate = Color( 0.8, 0.0627451, 0.0627451, 1 )
+position = Vector2( 96, 192 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
+visible = false
+modulate = Color( 0.8, 0.0627451, 0.0627451, 1 )
+shape = SubResource( 35 )
+
+[node name="Sprite" type="Sprite" parent="Lamp"]
+scale = Vector2( 0.33, 0.33 )
+texture = ExtResource( 7 )
+
+[node name="Light2D" type="Light2D" parent="Lamp"]
+texture = ExtResource( 8 )
+color = Color( 1, 0.988235, 0.32549, 1 )
+shadow_enabled = true
+
+[connection signal="body_entered" from="Lamp" to="Lamp" method="_on_Lamp_body_entered"]
 
 [editable path="PlatformManager"]

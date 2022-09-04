@@ -44,11 +44,11 @@ func _physics_process(_delta):
 	
 	# LEFT AND RIGHT
 	if not throw_mode:  # This stops movement in launch mode. Questionable design decision
-		if Input.is_action_pressed("ui_right"):
+		if Input.is_action_pressed("right"):
 			velocity_vec.x = min(velocity_vec.x + acceleration, speed)  # Smaller of either
 			sprite.flip_h = false
 			animation_state.travel("run_right")
-		elif  Input.is_action_pressed("ui_left"):
+		elif  Input.is_action_pressed("left"):
 			velocity_vec.x =  max(velocity_vec.x - acceleration, -speed)
 			sprite.flip_h = true
 			animation_state.travel("run_right")
@@ -58,7 +58,7 @@ func _physics_process(_delta):
 			animation_state.travel("Idle_right")
 
 		# JUMP
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
 				velocity_vec.y = jump
 				animation_state.travel("jump_loop_right")

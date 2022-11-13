@@ -93,6 +93,7 @@ func _physics_process(_delta):
 
 
 func _on_RoomDetector_area_entered(area):
+	# Change the camera whenever we enter a new room
 	if area.has_method("get_room_name"):
 		var collision_shape = area.get_node("CollisionShape2D")
 		var size = collision_shape.shape.extents*2  # Get size of the room

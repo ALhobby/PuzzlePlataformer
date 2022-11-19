@@ -1,10 +1,10 @@
 extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+func trap_moth(body):
+	#body.global_position = self.global_position
+	#body.velocity_vec = Vector2()
+	body.become_hypnotized(self.global_position)  # Moth goes towards the lamps position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,3 +14,4 @@ func _ready():
 func _on_Lamp_body_entered(body):
 	if body.has_method("set_launched"):
 		print("MOTH ENTERED LAMP AREA")
+		trap_moth(body)

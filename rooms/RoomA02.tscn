@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://room_elements/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://room_elements/Spikes.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/Other/spikes.png" type="Texture" id=4]
 [ext_resource path="res://room_elements/PlatformManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://room_elements/CheckpointMarker.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Kenny/PNG/Backgrounds/set2_background.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 180 )
@@ -39,6 +40,10 @@ points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
 [node name="RoomA02" type="Area2D"]
 script = ExtResource( 3 )
 room_name = "RoomA02"
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 320, 180 )

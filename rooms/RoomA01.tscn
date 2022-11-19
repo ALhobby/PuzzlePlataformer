@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://room_elements/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://room_elements/PlatformManager.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://assets/Other/godot_round_light.png" type="Texture" id=8]
 [ext_resource path="res://room_elements/Lamp.gd" type="Script" id=9]
+[ext_resource path="res://assets/Kenny/PNG/Backgrounds/set2_background.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 180 )
@@ -35,6 +36,10 @@ radius = 65.35
 [node name="RoomA01" type="Area2D"]
 script = ExtResource( 3 )
 room_name = "RoomA01"
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 320, 180 )
@@ -66,7 +71,7 @@ position = Vector2( 220, 320 )
 
 [node name="Lamp" type="Area2D" parent="."]
 modulate = Color( 0.8, 0.0627451, 0.0627451, 1 )
-position = Vector2( 96, 192 )
+position = Vector2( 400, 140 )
 script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]

@@ -23,6 +23,7 @@ func _ready():
 	player.connect("enter_throw_mode", self, "create_moth")
 	player.connect("launch", self, "launch_moth")
 	player.connect("recall_moth", self, "recall_moth")
+
 	var file = File.new()
 	map_dict = load_json_file("res://map.json")
 	#file.store_string("{'Room1': {}, 'Room2': {}, 'Room3': {}}")
@@ -84,25 +85,28 @@ func load_room_and_neighbors(current_room):
 			
 	print("loaded_rooms_dict: ", loaded_rooms_dict)
 
+
 func create_moth(launcher : Node):
 	""" Instance a new Moth scene
 	"""
 	if new_moth:
 		remove_child(new_moth)
 	new_moth = moth.instance()
-	new_moth.global_position = launcher.global_position + Vector2(0,-45)  # Spawn on top of player
+	new_moth.global_position = launcher.global_position + Vector2(0,-30)  # Spawn on top of player
 
 	add_child(new_moth)
 	draw_trayectory = true
 
 
 func recall_moth():
+	"""Delete Moth instance
+	"""
 	if new_moth:
 		remove_child(new_moth)
 
 
 func calculate_trayectory():
-	"""Calculate the trayectory that moth would have if launched.
+	"""Calculate the trayectory that moth would travel if launched.
 	"""
 	start_point = new_moth.global_position
 	var mouse_pos = get_global_mouse_position()
@@ -152,7 +156,7 @@ func calculate_trayectory():
 
 
 func update_trajectory(_delta):
-	""" Reset and refull the 'trayectory' line2D
+	""" Reset and refill the 'trayectory' line2D
 	"""
 	trayectory.clear_points()
 	var output_of_calc_trayect = calculate_trayectory()
@@ -162,6 +166,8 @@ func update_trajectory(_delta):
 
 
 func launch_moth():
+	"""Throw Moth
+	"""
 	new_moth.set_path(trayectory)
 	trayectory.clear_points()
 	draw_trayectory = false
